@@ -105,39 +105,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         Arrayproducts = sortProducts(ORDER_BY_PROD_ARTICULO, Arrayproducts);
         showProductsList(Arrayproducts);
     });
-
-    document.getElementById("rangeFilterCount").addEventListener("click", function(){
-
-        minCount = document.getElementById("rangeFilterCountMin").value;
-        maxCount = document.getElementById("rangeFilterCountMax").value;
-
-        if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0){
-            minCount = parseInt(minCount);
-        }
-        else{
-            minCount = undefined;
-        }
-
-        if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0){
-            maxCount = parseInt(maxCount);
-        }
-        else{
-            maxCount = undefined;
-        }
-
-        showProductsList(Arrayproducts);
-    });
-
-    document.getElementById("clearRangeFilter").addEventListener("click", function(){
-        document.getElementById("rangeFilterCountMin").value = "";
-        document.getElementById("rangeFilterCountMax").value = "";
-
-        minCount = undefined;
-        maxCount = undefined;
-
-        showProductsList(Arrayproducts);
-    });
-
     
     
 });
