@@ -1,4 +1,13 @@
-var usersArray = [];
+
+var usersArray = [
+    {
+        email: "usuario1@mail.com",
+        password: "contraseña1"
+    },
+    {
+        email: "usuario2@mail.com",
+        password: "contraseña2"
+    }];
 
 function validateUser(array, userIn, passwordIn) { 
     for (let i = 0; i < array.length; i++) {
@@ -16,10 +25,15 @@ function validateUser(array, userIn, passwordIn) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    document.getElementById("submit").addEventListener("click", function(e) {
+    let algo = document.getElementById("submit");
+        console.log("pito" + algo);
+    document.getElementById("submit").onclick = function() {
 
-        let inputEmail = document.getElementById("inputEmail");
-        let inputPassword = document.getElementById("inputPassword");
+        //let inputEmail = document.getElementById("inputEmail").value;
+        //let inputPassword = document.getElementById("inputPassword").value;
+        let inputEmail = "usuario1@mail.com";
+        let inputPassword = "contraseña1";
+
         let camposCompletos = true;
         
         if (inputEmail.value === '') {
@@ -34,26 +48,21 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         if (camposCompletos) {
 
-            $.getJSON("usuarios.json").then(function (resultObj) {
-                if (resultObj.status === "ok") {
-                    usersArray = resultObj.data;
-        
-                    if ( validateUser(usersArray, inputEmail.value, inputPassword.value) ){
+            if (validateUser(usersArray, inputEmail, inputPassword)) {
+                alert("Bienvenidos")
+                localStorage.setItem('User-Logged', inputEmail);
+                //document.getElementById("pt").innerHTML = localStorage.getItem('User-Logged');
+                console.log("pito2" + localStorage.getItem('User-Logged'))
+                window.location = 'index.html';
 
-                        //---------------------------
-                        localStorage.setItem('User-Logged', JSON.stringify({ email: inputEmail.value}));
-                        //---------------------------
-                        
-                        window.location = 'index.html';
-                    }else{
-                        alert("Usuario o contraseña incorrectas!");
-                    }
-                }
-            });
+            }else {
 
+                alert("Usuario o contraseña incorrectas!");
+            }
+                    
         }else{
             alert("Debes ingresar los datos!")
         }
-    });
+    };
 });
     
