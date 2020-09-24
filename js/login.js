@@ -25,14 +25,14 @@ function validateUser(array, userIn, passwordIn) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    let algo = document.getElementById("submit");
-        console.log("pito" + algo);
+    //let algo = document.getElementById("submit");
+
     document.getElementById("submit").onclick = function() {
 
-        //let inputEmail = document.getElementById("inputEmail").value;
-        //let inputPassword = document.getElementById("inputPassword").value;
-        let inputEmail = "usuario1@mail.com";
-        let inputPassword = "contraseña1";
+        let inputEmail = document.getElementById("inputEmail").value;
+        let inputPassword = document.getElementById("inputPassword").value;
+        //let inputEmail = "usuario1@mail.com";
+        //let inputPassword = "contraseña1";
 
         let camposCompletos = true;
         
@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function(e){
                 alert("Bienvenidos")
                 localStorage.setItem('User-Logged', inputEmail);
                 //document.getElementById("pt").innerHTML = localStorage.getItem('User-Logged');
-                console.log("pito2" + localStorage.getItem('User-Logged'))
                 window.location = 'index.html';
 
             }else {
