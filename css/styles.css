@@ -139,3 +139,15 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.btn-user {
+  color: white;
+  background-color: palevioletred;
+  border-color: palevioletred;
+}
+
+.btn-env{
+  color: black;
+  background-color: palevioletred;
+  border-color: palevioletred;
+}
