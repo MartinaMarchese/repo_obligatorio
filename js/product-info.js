@@ -2,6 +2,21 @@ var product = {};
 var comentariosArray = [];
 var Arrayproducts = [];
 
+function showRelatedProducts(arrayLista, arrayRelated){
+    let cont = '<hr>';
+    arrayRelated.forEach(function(i){
+        cont += '' + arrayLista[i].name + '<br>';
+        cont += 'Precio: ' + arrayLista[i].cost + '<br>';
+        cont += 'Vendidos: ' + arrayLista[i].soldCount + '<br>';
+        cont += '<img class="img" src="' + arrayLista[i].imgSrc + ' " >  <br>  ';
+        cont += '<a href="product-info.html"><button style="float: right;">Ver Producto</button></a><br><br>'
+        cont += '<br><hr><br>'
+    });
+
+    document.getElementById("productoRelacionado").innerHTML = cont;
+
+} 
+
 function showComents(product, arrayComments){
 
     let inf = "";
@@ -11,19 +26,40 @@ function showComents(product, arrayComments){
     inf += `
                     <h2> ${product.name} </h2>
                     <strong>${product.description}</strong><br><hr>
-                    <h5>Precio: ${product.cost}</h5><br>
-                    <h5>Moneda: ${product.currency}</h5><br>
+                    <h5>Precio: ${product.currency} ${product.cost}</h5><br>
                     <h5>Cantidad Vendidos: ${product.soldCount}</h5><br>
                     <h5>Categoría: ${product.category}</h5><br>
                     `;
 
     img += `
-                    <img class="img" src="${product.images[0]}">
-                    <img class="img" src="${product.images[1]}">
-                    <img class="img" src="${product.images[2]}">
-                    <img class="img" src="${product.images[3]}">
-                    <img class="img" src="${product.images[4]}">
-                    `;
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="${product.images[0]}" class="d-block w-100" alt="">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="${product.images[1]}" class="d-block w-100" alt="">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="${product.images[2]}" class="d-block w-100" alt="">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="${product.images[3]}" class="d-block w-100" alt="">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="${product.images[4]}" class="d-block w-100" alt="">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                </div>
+                `;
 
     arrayComments.forEach(function (comment) {
         let points = "";
@@ -67,6 +103,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
             product = resultObj.data;
 
             showComents(product, comentariosArray);
+        }
+
+    });
+
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            Arrayproducts = resultObj.data;
+
+            showRelatedProducts(Arrayproducts, product.relatedProducts);
         }
 
     });
@@ -117,3 +162,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 });
 
+
+
+                    /*<img class="img" src="${product.images[0]}">
+                    <img class="img" src="${product.images[1]}">
+                    <img class="img" src="${product.images[2]}">
+                    <img class="img" src="${product.images[3]}">
+                    <img class="img" src="${product.images[4]}">*/
