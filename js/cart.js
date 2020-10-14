@@ -93,7 +93,7 @@ function calcEnvio(){
     </tr>
     `
 
-    document.getElementById("muestroTotalEnvio").innerHTML = contenido;
+    document.getElementById("muestroDiasEnvio").innerHTML = contenido;
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
