@@ -1,11 +1,11 @@
 
 var usersArray = [
     {
-        email: "usuario1@mail.com",
+        email: "Maria123",
         password: "contraseña1"
     },
     {
-        email: "usuario2@mail.com",
+        email: "Jose456",
         password: "contraseña2"
     }];
 

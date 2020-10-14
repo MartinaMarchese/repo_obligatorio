@@ -52,25 +52,65 @@
     </div>
   </nav>
 
-
   
-  <div class="container">
-
-    <div id="datos">
-
+  <div class="container p-5">
+    <div class="text-center p-4">
+      <h2> <strong>Mi Carrito</strong> </h2>
     </div>
     <hr>
+    <div id="datos">
+    </div>
+    <hr>
+    <tfoot>
+      <tr>
+        <td colspan="4"><h4><strong>Precio Total:</strong></h4></td>
+        <td id="total"></td>
+      </tr>
+    </tfoot>
+    
+    <hr>
+    <div class="datosEnvio">
+      <div>
+        <h4>Datos para el envío:</h4> <br>
+        <label for="depto">Departamento</label><br> 
+        <select class="form-control" name="" id="depto" onchange="calcEnvio()" required>
+          <option name="envio" value="1">Montevideo</option>
+          <option name="envio" value="6">Artigas</option>
+          <option name="envio" value="1">Canelones</option>
+          <option name="envio" value="4">Cerro Largo</option>
+          <option name="envio" value="3">Colonia</option>
+          <option name="envio" value="4">Durazno</option>
+          <option name="envio" value="3">Flores</option>
+          <option name="envio" value="2">Florida</option>
+          <option name="envio" value="2">Lavalleja</option>
+          <option name="envio" value="2">Maldonado</option>
+          <option name="envio" value="5">Paysandú</option>
+          <option name="envio" value="5">Río Negro</option>
+          <option name="envio" value="6">Rivera</option>
+          <option name="envio" value="6">Rocha</option>
+          <option name="envio" value="6">Salto</option>
+          <option name="envio" value="1">San José</option>
+          <option name="envio" value="4">Soriano</option>
+          <option name="envio" value="5">Tacuarembó</option>
+          <option name="envio" value="4">Treinta y Tres</option>
+        </select><br>
 
+        <tr>
+          <td colspan="4"><h4><strong>Días de envío:</strong></h4> </td>
+          <table>
+            <tbody id="muestroTotalEnvio"> </tbody>
+          </table>
+        </tr>
+        </div>
+        <hr>
+
+    </div>
+    
   </div>
 
 
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+    
+      
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">

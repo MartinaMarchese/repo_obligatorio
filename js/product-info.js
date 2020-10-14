@@ -9,7 +9,7 @@ function showRelatedProducts(arrayLista, arrayRelated){
         cont += 'Precio: ' + arrayLista[i].cost + '<br>';
         cont += 'Vendidos: ' + arrayLista[i].soldCount + '<br>';
         cont += '<img class="img" src="' + arrayLista[i].imgSrc + ' " >  <br>  ';
-        cont += '<a href="product-info.html"><button style="float: right;">Ver Producto</button></a><br><br>'
+        cont += '<a href="product-info.html"><button style="float: right;" class="button">Ver Producto</button></a><br><br>'
         cont += '<br><hr><br>'
     });
 
@@ -65,7 +65,7 @@ function showComents(product, arrayComments){
         let points = "";
 
         comments += `
-                                        <strong>${comment.user}</strong> dice:<br>
+                                        <strong>${comment.user}</strong>:<br>
                                         <p>${comment.description}</p>
                                         `;
 
