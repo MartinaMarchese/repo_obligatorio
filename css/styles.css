@@ -170,3 +170,9 @@ a.custom-card:hover {
   border-collapse: collapse;
   width: 100%;
 }
+
+.btn {
+  color: white;
+  border-color: palevioletred;
+  background-color: palevioletred;
+}

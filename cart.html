@@ -41,76 +41,150 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <button id="user" class="btn btn-user dropdown-toggle" type="button" 
-      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+      <button id="user" class="btn btn-user dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false"></button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a href="cart.html" class="dropdown-item">Mi Carrito</a>
         <a href="my-profile.html" class="dropdown-item">Mi Perfil</a>
         <div class="dropdown-divider"></div>
         <a href="login.html" class="dropdown-item">Salir</a>
-    </div>
+      </div>
     </div>
   </nav>
 
-  <div class="container p-5">
-    <div class="text-center p-4">
-      <h2> <strong>Mi Carrito</strong> </h2>
+  <br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="text-center p-4">
+          <h2> <strong>Mi Carrito</strong> </h2>
+          <p>Aquí encontraras el contenido de tu carrito.</p>
+        </div>
+      </div>
     </div>
-    <hr>
-    <div id="datos">
-    </div>
-    <hr>
-    <tr>
-      <td colspan="4"><h4><strong>Precio Total:</strong></h4> </td>
-      <table>
-        <tbody id="total"> </tbody>
-      </table>
-    </tr>
+    <br>
+    <form id="needs-validation" novalidate>
+
+      <div class="miCarrito" id="miCarrito">
+        <div class="row">
+          <div class="col">
+            <div id="datos">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text-center p-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <h3><strong>Precio Total</strong> USD:</h3>
+                </span>
+                <span class="input-group-text" id="total"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      <!------------------------------------------------Metodo de Envio----------------------------->
+      <div class="container justify-content-center w-25">
+        <h4> <strong>Ingrese datos para el envío:</strong></h4>
+
+        <div class="row">
+          <div class="col">
+
+            <div class="datosEnvio">
+              <div>
+                <h5>Ingrese Dirección:</h5>
+                <input type="text" class="form-control" placeholder="Calle" required>
+                <div class="invalid-feedback">
+                  Por favor, ingreses sus datos.
+                </div> <br>
+                <input type="text" class="form-control" placeholder="Número" required>
+                <div class="invalid-feedback">
+                  Por favor, ingreses sus datos.
+                </div> <br>
+                <input type="text" class="form-control" placeholder="Esquina" required>
+                <div class="invalid-feedback">
+                  Por favor, ingreses sus datos.
+                </div> <br>
+                <h5>Ingrese su País:</h5>
+                <input type="text" class="form-control" placeholder="País" required>
+                <div class="invalid-feedback">
+                  Por favor, ingreses sus datos.
+                </div> <br>
+              </div>
+              <div>
+                <label for="tipoDeEnvio"> <strong>Seleccione el tipo de envío:</strong> </label><br>
+                <select class="form-control" name="" id="tipoDeEnvio" onchange="calcEnvio()" required>
+                  <option name="envio" value="15">Premium (2 - 5 días)</option>
+                  <option name="envio" value="7">Express (5 - 8 días)</option>
+                  <option name="envio" value="5">Standard (12 a 15 días)</option>
+                </select><br>
+
+                <tr>
+                  <table>
+                    <tbody id="muestroPorcentajeSub"> </tbody>
+                  </table>
+                </tr>
+              </div>
+              <!---------------------------------------------- FORMA DE PAGO --------------------------------------------->
+              <div>
+                <br>
+                <h5><strong>Seleccione una forma de pago:</strong></h5>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalEnvio">
+                  Forma de Pago
+                </button>
+              </div>
+            </div>
+
+            <!---------------------------------MODAL----------------------------------------------------------->
+            <div class="modal fade" id="modalEnvio" data-backdrop="static" data-keyboard="false" tabindex="-1"
+              aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Seleccione su forma de pago:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-body">
+                    <div>
+                      <input id="TarjetaDeCredito" name="envio" type="radio" value="" checked="" required="">
+                      <label for="TarjetaDeCredito">Tarjeta de Credito</label> <br>
+
+                      <input id="TransferenciaBanco" name="envio" type="radio" value="" required="">
+                      <label for="TransferenciaBanco">Transferencia Bancaria</label> <br>
+                    </div>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-block btn-success">Confirmar</button>
+            </div>
+
+    </form>
+  </div>
   
 
-    <hr>
-    <div class="datosEnvio">
-      <div>
-        <h4>Datos para el envío:</h4> <br>
-        <label for="depto">Departamento</label><br> 
-        <select class="form-control" name="" id="depto" onchange="calcEnvio()" required>
-          <option name="envio" value="1">Montevideo</option>
-          <option name="envio" value="6">Artigas</option>
-          <option name="envio" value="1">Canelones</option>
-          <option name="envio" value="4">Cerro Largo</option>
-          <option name="envio" value="3">Colonia</option>
-          <option name="envio" value="4">Durazno</option>
-          <option name="envio" value="3">Flores</option>
-          <option name="envio" value="2">Florida</option>
-          <option name="envio" value="2">Lavalleja</option>
-          <option name="envio" value="2">Maldonado</option>
-          <option name="envio" value="5">Paysandú</option>
-          <option name="envio" value="5">Río Negro</option>
-          <option name="envio" value="6">Rivera</option>
-          <option name="envio" value="6">Rocha</option>
-          <option name="envio" value="6">Salto</option>
-          <option name="envio" value="1">San José</option>
-          <option name="envio" value="4">Soriano</option>
-          <option name="envio" value="5">Tacuarembó</option>
-          <option name="envio" value="4">Treinta y Tres</option>
-        </select><br>
+  <br>
 
-        <tr>
-          <td colspan="4"><h4><strong>Días de envío:</strong></h4> </td>
-          <table>
-            <tbody id="muestroDiasEnvio"> </tbody>
-          </table>
-        </tr>
-        </div>
-        <hr>
-
-    </div>
-    
-  </div>
-
-
-    
-      
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
